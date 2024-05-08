@@ -1,0 +1,57 @@
+﻿<Window x:Class="p22.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:p22"
+        mc:Ignorable="d"
+        Title="Практическая 22" Height="450" Width="600" Loaded="WindowLoaded" ResizeMode="NoResize" Initialized="WindowInitialized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="1.35*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="lv" Grid.ColumnSpan="3" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="1.1*"/>
+                            <ColumnDefinition Width="1.1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Image Width="100" Height="100" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Stretch="UniformToFill"
+                   HorizontalAlignment="Center" Source="{Binding КлиентNavigation.PhotoFull}"></Image>
+                        <TextBlock Text="{Binding Страна, StringFormat={}Страна: {0}}" Grid.Row="2" Grid.Column="0"></TextBlock>
+                        <TextBlock Text="{Binding ДатаОтъезда, StringFormat={}Дата отъезда: {0}}" Grid.Row="0" Grid.Column="1"></TextBlock>
+                        <TextBlock Text="{Binding СтоимостьТура, StringFormat={}Стоимость тура: {0}}" Grid.Row="1" Grid.Column="1"></TextBlock>
+                        <TextBlock Text="{Binding КлиентNavigation.Адрес, StringFormat={}Адрес клиента: {0}}" Grid.Row="0" Grid.Column="2"></TextBlock>
+                        <TextBlock Text="{Binding КлиентNavigation.Телефон, StringFormat={}Телефон клиента: {0}}" Grid.Row="2" Grid.Column="2"></TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+        <Button x:Name="btnadd" Content="Добавить запись" HorizontalAlignment="Center" Height="35" Grid.Row="2" VerticalAlignment="Center" Width="160" Click="addCLick"/>
+        <Button x:Name="btnred" Content="Редактировать запись" HorizontalAlignment="Center" Height="35" Grid.Row="2" VerticalAlignment="Center" Width="160" Grid.Column="1" Click="redCLick"/>
+        <Button x:Name="btndel" Content="Удалить запись" HorizontalAlignment="Center" Height="35" Grid.Row="2" VerticalAlignment="Center" Width="160" Grid.Column="2" Click="delClick"/>
+        <Button x:Name="btnauto" Content="Переавторизоваться" HorizontalAlignment="Center" Height="35" VerticalAlignment="Top" Width="160" Grid.Row="3" Click="autoClick"/>
+        <Button x:Name="btnfiltr" Content="Фильтр" HorizontalAlignment="Center" Height="35" VerticalAlignment="Top" Width="160" Grid.Row="3" Grid.Column="1" Click="filtrClick"/>
+        <Button x:Name="btnfind" Content="Поиск" HorizontalAlignment="Center" Height="35" VerticalAlignment="Top" Width="160" Grid.Row="3" Grid.Column="2" Click="findCLick"/>
+        <TextBox x:Name="findtb" Grid.Column="2" HorizontalAlignment="Center" Height="35" Grid.Row="3" VerticalAlignment="Bottom" Width="160" Margin="0,5"/>
+        <TextBox x:Name="filtrtb" Grid.Column="1" HorizontalAlignment="Center" Height="35" Grid.Row="3" VerticalAlignment="Bottom" Width="160" Margin="0,5"/>
+        <Button x:Name="btnsbros" Content="Сбросить фильтр" HorizontalAlignment="Center" Height="35" VerticalAlignment="Bottom" Width="160" Grid.Row="3" Click="sbrosClick" Margin="0,5"/>
+    </Grid>
+</Window>
